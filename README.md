@@ -302,4 +302,4 @@ The mean is equal to the drift $c$, so 8 for this example!
 
 ## Summary
 
-Great, you now know how a Random Walk and Moving Average model work!\
+Great, you now know how a Random Walk and Moving Average model work!
