@@ -103,7 +103,7 @@ Because you've generated this data, you know that the mean and constant will be 
 Remember from the lecture that the Random Walk Model:
 
 - Has no specified mean or variance
-- Has a strong depencence over time
+- Has a strong dependence over time
 
 Mathematically, this can be written as:
 
@@ -117,7 +117,7 @@ $$Y_3= Y_{2}+ \epsilon_3 = Y_{0} + \epsilon_1 + \epsilon_2 + \epsilon_3 $$
 $$\ldots $$
 
 Keeping this in mind, let's create a random walk model:
-- starting from a value of 1000 USD of a share value upon a company's first IPO (initial public offering) in 2010 until end of november of the same year, generate a random walk model with a white noise error term, which has a standard error of 10.
+- starting from a value of 1000 USD of a share value upon a company's first IPO (initial public offering) in 2010 until end of November of the same year, generate a random walk model with a white noise error term, which has a standard error of 10.
 
 
 ```python
