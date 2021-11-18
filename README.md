@@ -1,4 +1,3 @@
-
 # Basic Time Series Models - Lab
 
 ## Introduction
@@ -37,7 +36,7 @@ Create the dates. You can do this using the `date_range()` function Pandas. More
 
 
 ```python
-dates = pd.date_range('2018-08-01', '2018-10-30', freq='B')
+dates = pd.date_range('2018-08-01', '2018-10-31', freq='B')
 len(dates)
 ```
 
@@ -73,7 +72,9 @@ plt.show()
 ```
 
 
+    
 ![png](index_files/index_13_0.png)
+    
 
 
 Print Nina's shortest and longest commute.
@@ -110,7 +111,9 @@ commute_series.hist(grid=False);
 ```
 
 
+    
 ![png](index_files/index_18_0.png)
+    
 
 
 Compute the mean and standard deviation of `commute_series`. The fact that the mean and standard error are constant over time is crucial!
@@ -212,7 +215,9 @@ plt.show()
 ```
 
 
+    
 ![png](index_files/index_28_0.png)
+    
 
 
 You can see how this very much looks like the exchange rate series you looked at in the lesson!
@@ -253,7 +258,9 @@ plt.show()
 ```
 
 
+    
 ![png](index_files/index_32_0.png)
+    
 
 
 Note that there is a very strong drift here!
@@ -281,7 +288,9 @@ plt.show(block=False)
 ```
 
 
+    
 ![png](index_files/index_37_0.png)
+    
 
 
 This does look a lot like a white noise series!
@@ -299,7 +308,9 @@ plt.show(block=False)
 ```
 
 
+    
 ![png](index_files/index_40_0.png)
+    
 
 
 This is also a white noise series, but what can you tell about the mean? 
