@@ -1,4 +1,3 @@
-
 # Basic Time Series Models - Lab
 
 ## Introduction
