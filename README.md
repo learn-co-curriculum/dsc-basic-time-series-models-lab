@@ -36,7 +36,7 @@ Create the dates. You can do this using the `date_range()` function Pandas. More
 
 
 ```python
-dates = pd.date_range('2018-08-01', '2018-10-31', freq='B')
+dates = pd.date_range('2018-08-01', '2018-10-31', freq='B', inclusive='left')
 len(dates)
 ```
 
@@ -126,7 +126,7 @@ np.mean(commute_series)
 
 
 
-    24.62933183905801
+    24.629331839058004
 
 
 
@@ -154,7 +154,7 @@ print('October: ', np.mean(oct_series), np.std(oct_series))
 
     August:  25.35433780425335 4.206438796880027 
     
-    October:  25.677914014894995 4.273672352538592
+    October:  25.677914014895 4.2736723525385925
 
 
 Because you've generated this data, you know that the mean and standard deviation will be the same over time. However, comparing mean and standard deviation over time is useful practice for real data examples to check if a process is white noise!
@@ -187,7 +187,7 @@ Starting from a value of 1000 USD of a share value upon a company's first IPO (i
 np.random.seed(11)
 
 # Create a series with the specified dates
-dates = pd.date_range('2010-01-01', '2010-11-30', freq='B')
+dates = pd.date_range('2010-01-01', '2010-11-30', freq='B', inclusive='left')
 
 # White noise error term
 error = np.random.normal(0, 10, len(dates))
@@ -232,7 +232,7 @@ Repeat the above, but include a drift parameter $c$ of 8 now!
 np.random.seed(11)
 
 # Create a series with the specified dates
-dates = pd.date_range('2010-01-01', '2010-11-30', freq='B')
+dates = pd.date_range('2010-01-01', '2010-11-30', freq='B', inclusive='left')
 
 # White noise error term
 error = np.random.normal(0, 10, len(dates))
