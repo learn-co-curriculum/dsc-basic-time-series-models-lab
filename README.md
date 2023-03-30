@@ -24,12 +24,8 @@ Let's import `pandas`, `numpy`, and `matplotlib.pyplot` using their standard ali
 
 
 ```python
-
-
-
-
 # Do not change this seed
-np.random.seed(12) 
+np.random.seed(12)
 ```
 
 Create the dates. You can do this using the `date_range()` function Pandas. More info [here](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.date_range.html).
@@ -60,8 +56,7 @@ Visualize the time series and set appropriate axis labels.
 
 
 ```python
-# Visualize the time series 
-
+# Visualize the time series
 ```
 
 Print Nina's shortest and longest commute.
@@ -69,13 +64,11 @@ Print Nina's shortest and longest commute.
 
 ```python
 # Shortest commute
-
 ```
 
 
 ```python
 # Longest commute
-
 ```
 
 Look at the distribution of commute times.
@@ -83,7 +76,6 @@ Look at the distribution of commute times.
 
 ```python
 # Distribution of commute times
-
 ```
 
 Compute the mean and standard deviation of `commute_series`. The fact that the mean and standard error are constant over time is crucial!
@@ -91,13 +83,11 @@ Compute the mean and standard deviation of `commute_series`. The fact that the m
 
 ```python
 # Mean of commute_series
-
 ```
 
 
 ```python
 # Standard deviation of commute_series
-
 ```
 
 Now, let's look at the mean and standard deviation for August and October.  
@@ -105,7 +95,6 @@ Now, let's look at the mean and standard deviation for August and October.
 
 ```python
 # Mean and standard deviation for August and October
-
 ```
 
 Because you've generated this data, you know that the mean and standard deviation will be the same over time. However, comparing mean and standard deviation over time is useful practice for real data examples to check if a process is white noise!
@@ -143,9 +132,11 @@ dates = None
 # White noise error term
 error = None
 
+
 # Define random walk
-def random_walk(start, error):        
+def random_walk(start, error):
     pass
+
 
 shares_value = random_walk(1000, error)
 
@@ -169,15 +160,13 @@ Repeat the above, but include a drift parameter $c$ of 8 now!
 ```python
 # Keep the random seed
 np.random.seed(11)
-
-
 ```
 
 
 ```python
-ax = shares_series_drift.plot(figsize=(14,6))
-ax.set_ylabel('Stock value', fontsize=16)
-ax.set_xlabel('Date', fontsize=16)
+ax = shares_series_drift.plot(figsize=(14, 6))
+ax.set_ylabel("Stock value", fontsize=16)
+ax.set_xlabel("Date", fontsize=16)
 plt.show()
 ```
 
@@ -198,7 +187,6 @@ Plot the differenced time series (time period of 1) for the shares time series (
 
 ```python
 # Your code here
-
 ```
 
 This does look a lot like a white noise series!
@@ -207,8 +195,7 @@ Plot the differenced time series for the shares time series (with a drift).
 
 
 ```python
-# Your code here 
-
+# Your code here
 ```
 
 This is also a white noise series, but what can you tell about the mean? 
