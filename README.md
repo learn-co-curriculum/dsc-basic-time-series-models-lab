@@ -36,7 +36,7 @@ Create the dates. You can do this using the `date_range()` function Pandas. More
 
 
 ```python
-dates = pd.date_range('2018-08-01', '2018-10-31', freq='B', inclusive='left')
+dates = pd.date_range("2018-08-01", "2018-10-31", freq="B", inclusive="left")
 len(dates)
 ```
 
@@ -65,9 +65,9 @@ Visualize the time series and set appropriate axis labels.
 
 
 ```python
-ax = commute_series.plot(figsize=(14,6))
-ax.set_ylabel('Commute time (min)', fontsize=16)
-ax.set_xlabel('Date', fontsize=16)
+ax = commute_series.plot(figsize=(14, 6))
+ax.set_ylabel("Commute time (min)", fontsize=16)
+ax.set_xlabel("Date", fontsize=16)
 plt.show()
 ```
 
@@ -146,10 +146,10 @@ Now, let's look at the mean and standard deviation for August and October.
 
 
 ```python
-aug_series = commute_series['08-2018']
-oct_series = commute_series['10-2018']
-print('August: ', np.mean(aug_series), np.std(aug_series), '\n')
-print('October: ', np.mean(oct_series), np.std(oct_series))
+aug_series = commute_series["08-2018"]
+oct_series = commute_series["10-2018"]
+print("August: ", np.mean(aug_series), np.std(aug_series), "\n")
+print("October: ", np.mean(oct_series), np.std(oct_series))
 ```
 
     August:  25.35433780425335 4.206438796880027 
@@ -187,17 +187,19 @@ Starting from a value of 1000 USD of a share value upon a company's first IPO (i
 np.random.seed(11)
 
 # Create a series with the specified dates
-dates = pd.date_range('2010-01-01', '2010-11-30', freq='B', inclusive='left')
+dates = pd.date_range("2010-01-01", "2010-11-30", freq="B", inclusive="left")
 
 # White noise error term
 error = np.random.normal(0, 10, len(dates))
 
+
 # Define random walk
-def random_walk(start, error):        
+def random_walk(start, error):
     Y_0 = start
     cum_error = np.cumsum(error)
-    Y = cum_error + Y_0 
+    Y = cum_error + Y_0
     return Y
+
 
 shares_value = random_walk(1000, error)
 
@@ -208,9 +210,9 @@ Visualize the time series with correct axis labels.
 
 
 ```python
-ax = shares_series.plot(figsize=(14,6))
-ax.set_ylabel('Stock value', fontsize=16)
-ax.set_xlabel('Date', fontsize=16)
+ax = shares_series.plot(figsize=(14, 6))
+ax.set_ylabel("Stock value", fontsize=16)
+ax.set_xlabel("Date", fontsize=16)
 plt.show()
 ```
 
@@ -232,28 +234,30 @@ Repeat the above, but include a drift parameter $c$ of 8 now!
 np.random.seed(11)
 
 # Create a series with the specified dates
-dates = pd.date_range('2010-01-01', '2010-11-30', freq='B', inclusive='left')
+dates = pd.date_range("2010-01-01", "2010-11-30", freq="B", inclusive="left")
 
 # White noise error term
 error = np.random.normal(0, 10, len(dates))
 
+
 # Define random walk
-def random_walk(start, error):        
+def random_walk(start, error):
     Y_0 = start
     cum_error = np.cumsum(error + 8)
-    Y = cum_error + Y_0 
+    Y = cum_error + Y_0
     return Y
+
 
 shares_value_drift = random_walk(1000, error)
 
-shares_series_drift =  pd.Series(shares_value_drift, index=dates)
+shares_series_drift = pd.Series(shares_value_drift, index=dates)
 ```
 
 
 ```python
-ax = shares_series_drift.plot(figsize=(14,6))
-ax.set_ylabel('Stock value', fontsize=16)
-ax.set_xlabel('Date', fontsize=16)
+ax = shares_series_drift.plot(figsize=(14, 6))
+ax.set_ylabel("Stock value", fontsize=16)
+ax.set_xlabel("Date", fontsize=16)
 plt.show()
 ```
 
@@ -281,9 +285,9 @@ Plot the differenced time series (time period of 1) for the shares time series (
 ```python
 shares_diff = shares_series.diff(periods=1)
 
-fig = plt.figure(figsize=(18,6))
+fig = plt.figure(figsize=(18, 6))
 plt.plot(shares_diff)
-plt.title('Differenced shares series')
+plt.title("Differenced shares series")
 plt.show(block=False)
 ```
 
@@ -301,9 +305,9 @@ Plot the differenced time series for the shares time series (with a drift).
 ```python
 shares_drift_diff = shares_series_drift.diff(periods=1)
 
-fig = plt.figure(figsize=(18,6))
+fig = plt.figure(figsize=(18, 6))
 plt.plot(shares_drift_diff)
-plt.title('Differenced shares (with drift) series')
+plt.title("Differenced shares (with drift) series")
 plt.show(block=False)
 ```
 
