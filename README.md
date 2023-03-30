@@ -24,17 +24,13 @@ Let's import `pandas`, `numpy`, and `matplotlib.pyplot` using their standard ali
 
 
 ```python
-
-
-
-
 # Do not change this seed
-np.random.seed(12) 
+np.random.seed(12)
 ```
 
 
 ```python
-# __SOLUTION__ 
+# __SOLUTION__
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -53,8 +49,8 @@ dates = None
 
 
 ```python
-# __SOLUTION__ 
-dates = pd.date_range('2018-08-01', '2018-10-31', freq='B', inclusive='left')
+# __SOLUTION__
+dates = pd.date_range("2018-08-01", "2018-10-31", freq="B", inclusive="left")
 len(dates)
 ```
 
@@ -75,7 +71,7 @@ commute = None
 
 
 ```python
-# __SOLUTION__ 
+# __SOLUTION__
 commute = np.random.normal(25, 4, len(dates))
 ```
 
@@ -89,7 +85,7 @@ commute_series = None
 
 
 ```python
-# __SOLUTION__ 
+# __SOLUTION__
 commute_series = pd.Series(commute, index=dates)
 ```
 
@@ -97,16 +93,15 @@ Visualize the time series and set appropriate axis labels.
 
 
 ```python
-# Visualize the time series 
-
+# Visualize the time series
 ```
 
 
 ```python
-# __SOLUTION__ 
-ax = commute_series.plot(figsize=(14,6))
-ax.set_ylabel('Commute time (min)', fontsize=16)
-ax.set_xlabel('Date', fontsize=16)
+# __SOLUTION__
+ax = commute_series.plot(figsize=(14, 6))
+ax.set_ylabel("Commute time (min)", fontsize=16)
+ax.set_xlabel("Date", fontsize=16)
 plt.show()
 ```
 
@@ -121,18 +116,16 @@ Print Nina's shortest and longest commute.
 
 ```python
 # Shortest commute
-
 ```
 
 
 ```python
 # Longest commute
-
 ```
 
 
 ```python
-# __SOLUTION__ 
+# __SOLUTION__
 min(commute)
 ```
 
@@ -145,7 +138,7 @@ min(commute)
 
 
 ```python
-# __SOLUTION__ 
+# __SOLUTION__
 max(commute)
 ```
 
@@ -161,12 +154,11 @@ Look at the distribution of commute times.
 
 ```python
 # Distribution of commute times
-
 ```
 
 
 ```python
-# __SOLUTION__ 
+# __SOLUTION__
 commute_series.hist(grid=False);
 ```
 
@@ -181,18 +173,16 @@ Compute the mean and standard deviation of `commute_series`. The fact that the m
 
 ```python
 # Mean of commute_series
-
 ```
 
 
 ```python
 # Standard deviation of commute_series
-
 ```
 
 
 ```python
-# __SOLUTION__ 
+# __SOLUTION__
 np.mean(commute_series)
 ```
 
@@ -205,7 +195,7 @@ np.mean(commute_series)
 
 
 ```python
-# __SOLUTION__ 
+# __SOLUTION__
 np.std(commute_series)
 ```
 
@@ -221,16 +211,15 @@ Now, let's look at the mean and standard deviation for August and October.
 
 ```python
 # Mean and standard deviation for August and October
-
 ```
 
 
 ```python
-# __SOLUTION__ 
-aug_series = commute_series['08-2018']
-oct_series = commute_series['10-2018']
-print('August: ', np.mean(aug_series), np.std(aug_series), '\n')
-print('October: ', np.mean(oct_series), np.std(oct_series))
+# __SOLUTION__
+aug_series = commute_series["08-2018"]
+oct_series = commute_series["10-2018"]
+print("August: ", np.mean(aug_series), np.std(aug_series), "\n")
+print("October: ", np.mean(oct_series), np.std(oct_series))
 ```
 
     August:  25.35433780425335 4.206438796880027 
@@ -273,9 +262,11 @@ dates = None
 # White noise error term
 error = None
 
+
 # Define random walk
-def random_walk(start, error):        
+def random_walk(start, error):
     pass
+
 
 shares_value = random_walk(1000, error)
 
@@ -284,22 +275,24 @@ shares_series = pd.Series(shares_value, index=dates)
 
 
 ```python
-# __SOLUTION__ 
+# __SOLUTION__
 # Keep the random seed
 np.random.seed(11)
 
 # Create a series with the specified dates
-dates = pd.date_range('2010-01-01', '2010-11-30', freq='B', inclusive='left')
+dates = pd.date_range("2010-01-01", "2010-11-30", freq="B", inclusive="left")
 
 # White noise error term
 error = np.random.normal(0, 10, len(dates))
 
+
 # Define random walk
-def random_walk(start, error):        
+def random_walk(start, error):
     Y_0 = start
     cum_error = np.cumsum(error)
-    Y = cum_error + Y_0 
+    Y = cum_error + Y_0
     return Y
+
 
 shares_value = random_walk(1000, error)
 
@@ -315,10 +308,10 @@ Visualize the time series with correct axis labels.
 
 
 ```python
-# __SOLUTION__ 
-ax = shares_series.plot(figsize=(14,6))
-ax.set_ylabel('Stock value', fontsize=16)
-ax.set_xlabel('Date', fontsize=16)
+# __SOLUTION__
+ax = shares_series.plot(figsize=(14, 6))
+ax.set_ylabel("Stock value", fontsize=16)
+ax.set_xlabel("Date", fontsize=16)
 plt.show()
 ```
 
@@ -338,48 +331,48 @@ Repeat the above, but include a drift parameter $c$ of 8 now!
 ```python
 # Keep the random seed
 np.random.seed(11)
-
-
 ```
 
 
 ```python
-# __SOLUTION__ 
+# __SOLUTION__
 # Keep the random seed
 np.random.seed(11)
 
 # Create a series with the specified dates
-dates = pd.date_range('2010-01-01', '2010-11-30', freq='B', inclusive='left')
+dates = pd.date_range("2010-01-01", "2010-11-30", freq="B", inclusive="left")
 
 # White noise error term
 error = np.random.normal(0, 10, len(dates))
 
+
 # Define random walk
-def random_walk(start, error):        
+def random_walk(start, error):
     Y_0 = start
     cum_error = np.cumsum(error + 8)
-    Y = cum_error + Y_0 
+    Y = cum_error + Y_0
     return Y
+
 
 shares_value_drift = random_walk(1000, error)
 
-shares_series_drift =  pd.Series(shares_value_drift, index=dates)
+shares_series_drift = pd.Series(shares_value_drift, index=dates)
 ```
 
 
 ```python
-ax = shares_series_drift.plot(figsize=(14,6))
-ax.set_ylabel('Stock value', fontsize=16)
-ax.set_xlabel('Date', fontsize=16)
+ax = shares_series_drift.plot(figsize=(14, 6))
+ax.set_ylabel("Stock value", fontsize=16)
+ax.set_xlabel("Date", fontsize=16)
 plt.show()
 ```
 
 
 ```python
-# __SOLUTION__ 
-ax = shares_series_drift.plot(figsize=(14,6))
-ax.set_ylabel('Stock value', fontsize=16)
-ax.set_xlabel('Date', fontsize=16)
+# __SOLUTION__
+ax = shares_series_drift.plot(figsize=(14, 6))
+ax.set_ylabel("Stock value", fontsize=16)
+ax.set_xlabel("Date", fontsize=16)
 plt.show()
 ```
 
@@ -406,17 +399,16 @@ Plot the differenced time series (time period of 1) for the shares time series (
 
 ```python
 # Your code here
-
 ```
 
 
 ```python
-# __SOLUTION__ 
+# __SOLUTION__
 shares_diff = shares_series.diff(periods=1)
 
-fig = plt.figure(figsize=(18,6))
+fig = plt.figure(figsize=(18, 6))
 plt.plot(shares_diff)
-plt.title('Differenced shares series')
+plt.title("Differenced shares series")
 plt.show(block=False)
 ```
 
@@ -432,18 +424,17 @@ Plot the differenced time series for the shares time series (with a drift).
 
 
 ```python
-# Your code here 
-
+# Your code here
 ```
 
 
 ```python
-# __SOLUTION__ 
+# __SOLUTION__
 shares_drift_diff = shares_series_drift.diff(periods=1)
 
-fig = plt.figure(figsize=(18,6))
+fig = plt.figure(figsize=(18, 6))
 plt.plot(shares_drift_diff)
-plt.title('Differenced shares (with drift) series')
+plt.title("Differenced shares (with drift) series")
 plt.show(block=False)
 ```
 
